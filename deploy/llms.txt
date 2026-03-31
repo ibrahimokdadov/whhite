@@ -1,0 +1,39 @@
+# Whhite
+
+> A catalog of 40+ tools and experiments built by Ibrahim Mokdad and Yazin Alirhayim, deployed at *.whhite.com.
+
+Whhite is a collection of independently deployable software projects covering five categories: Claude Ecosystem tools, Developer Tools, AI Apps, Islamic tools, and Life & Consumer apps. Every project is built by the same two-person team in Bahrain and shipped as a live product.
+
+The Claude Ecosystem projects (claudemonitor, claudeview/Claude Garden, claudecost, taskaude) all monitor or visualize Claude Code AI coding sessions in different ways — live dashboards, plant metaphors, cost tracking, and task inspection.
+
+The Developer Tools (disksizer, winopenoats, recoverer, mdpdf, svger, figma-to-pr, saas-cloner, trading-guardrails) are standalone utilities for Windows developers, with an emphasis on local execution, speed, and zero bloat.
+
+The AI Apps (postwriter, doc-ai, tabib, translatebh, style-trainer, rep-counter, reflect-app, gender-pitch-demo, bookwise, cold-cannon, detectcost) are AI-powered consumer and professional tools, many with a focus on privacy and local processing.
+
+The Islamic tools (learnislam, noor, inheritance-calc/faraid, mirath, zakatfitr, quran-tracker, offline-tarteel, sujoodsaho) serve the Muslim community with scholarship-accurate calculators, educational games, and prayer guides.
+
+The Life & Consumer apps (firstbite, sitternow, clustercal, say-it-first, chicken-empire, talabat-optimizer, racegame, resist-garden, voice-quest) are regional consumer products for the GCC market.
+
+## The Makers
+
+Ibrahim Mokdad — engineer and ML specialist, MSc with distinction, YouTube educator (74K+ views on ML tutorials), co-founder of EXA.io.
+
+Yazin Alirhayim — founder (YC W22), former payments company founder acquired by Amazon, Six Sigma Black Belt, has shipped 100+ AI prototypes.
+
+Together they run The Clear Hour, an AI workflow consultancy helping professionals save 5+ hours per week through AI tools and process optimization.
+
+## Key pages
+
+- /: Full catalog with all projects, descriptions, and links
+
+## Contact
+
+ibrahim@whhite.com
+
+## Source
+
+https://github.com/ibrahimokdadov
+
+## Related
+
+https://theclearhour.com
