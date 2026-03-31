@@ -289,6 +289,27 @@
       border-color: var(--card-cat);
     }
 
+    /* Star badge */
+    .card-star-badge {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      z-index: 2;
+      background: rgba(15, 12, 10, 0.72);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      color: #FFD140;
+      font-size: 0.65rem;
+      font-weight: 700;
+      font-family: 'Nunito', sans-serif;
+      letter-spacing: 0.04em;
+      padding: 0.22rem 0.55rem;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      gap: 0.2rem;
+    }
+
     /* Screenshot area */
     .card-shot {
       position: relative;
@@ -645,6 +666,7 @@
 
         <a class="card" href="https://claudemonitor.whhite.com" target="_blank" rel="noopener" style="--card-cat:var(--cat-claude)">
           <div class="card-shot">
+            <div class="card-star-badge">★ 5</div>
             <div class="card-shot-placeholder">CM</div>
             <img src="/screenshots/claudemonitor.jpg" loading="lazy" alt="Claude Monitor">
           </div>
@@ -731,27 +753,9 @@
       </div>
       <div class="cards-grid">
 
-        <a class="card" href="https://disksizer.whhite.com" target="_blank" rel="noopener" style="--card-cat:var(--cat-dev)">
-          <div class="card-shot">
-            <div class="card-shot-placeholder">DS</div>
-            <img src="/screenshots/disksizer.jpg" loading="lazy" alt="DiskSizer">
-          </div>
-          <div class="card-body">
-            <div class="card-top">
-              <span class="cat-badge" style="background:var(--cat-dev)">Dev</span>
-              <span class="card-num">05</span>
-            </div>
-            <h3 class="card-title">DiskSizer</h3>
-            <p class="card-desc">Blazing-fast disk space analyzer for Windows — find what's eating your drive</p>
-            <div class="card-footer">
-              <span>disksizer.whhite.com</span>
-              <span class="card-footer-arrow">↗</span>
-            </div>
-          </div>
-        </a>
-
         <a class="card" href="https://winopenoats.whhite.com" target="_blank" rel="noopener" style="--card-cat:var(--cat-dev)">
           <div class="card-shot">
+            <div class="card-star-badge">★ 3</div>
             <div class="card-shot-placeholder">WO</div>
             <img src="/screenshots/winopenoats.jpg" loading="lazy" alt="WinOpenOats">
           </div>
@@ -771,6 +775,7 @@
 
         <a class="card" href="https://recoverer.whhite.com" target="_blank" rel="noopener" style="--card-cat:var(--cat-dev)">
           <div class="card-shot">
+            <div class="card-star-badge">★ 2</div>
             <div class="card-shot-placeholder">RC</div>
             <img src="/screenshots/recoverer.jpg" loading="lazy" alt="Recoverer">
           </div>
@@ -787,6 +792,29 @@
             </div>
           </div>
         </a>
+
+        <a class="card" href="https://disksizer.whhite.com" target="_blank" rel="noopener" style="--card-cat:var(--cat-dev)">
+          <div class="card-shot">
+            <div class="card-shot-placeholder">DS</div>
+            <img src="/screenshots/disksizer.jpg" loading="lazy" alt="DiskSizer">
+          </div>
+          <div class="card-body">
+            <div class="card-top">
+              <span class="cat-badge" style="background:var(--cat-dev)">Dev</span>
+              <span class="card-num">05</span>
+            </div>
+            <h3 class="card-title">DiskSizer</h3>
+            <p class="card-desc">Blazing-fast disk space analyzer for Windows — find what's eating your drive</p>
+            <div class="card-footer">
+              <span>disksizer.whhite.com</span>
+              <span class="card-footer-arrow">↗</span>
+            </div>
+          </div>
+        </a>
+
+
+
+
 
         <a class="card" href="https://mdpdf.whhite.com" target="_blank" rel="noopener" style="--card-cat:var(--cat-dev)">
           <div class="card-shot">
@@ -1123,7 +1151,7 @@
           </div>
         </a>
 
-        <a class="card" href="https://cold-cannon.whhite.com" target="_blank" rel="noopener" style="--card-cat:var(--cat-ai)">
+        <a class="card" href="https://coldcannon.com" target="_blank" rel="noopener" style="--card-cat:var(--cat-ai)">
           <div class="card-shot">
             <div class="card-shot-placeholder">CC</div>
             <img src="/screenshots/cold-cannon.jpg" loading="lazy" alt="Cold Cannon">
@@ -1136,7 +1164,7 @@
             <h3 class="card-title">Cold Cannon</h3>
             <p class="card-desc">AI cold outreach command center — research, personalize, and fire at scale</p>
             <div class="card-footer">
-              <span>cold-cannon.whhite.com</span>
+              <span>coldcannon.com</span>
               <span class="card-footer-arrow">↗</span>
             </div>
           </div>
