@@ -4,1070 +4,1635 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Whhite — Tools &amp; Experiments</title>
-  <meta name="description" content="44+ tools and experiments by Ibrahim Mokdad &amp; Yazin Alirhayim. AI assistants, developer utilities, Islamic apps, and more — all at *.whhite.com" />
+  <meta name="description" content="44 tools and experiments by Ibrahim Mokdad &amp; Yazin Alirhayim. AI assistants, developer utilities, Islamic apps, and more — all at *.whhite.com" />
   <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://whhite.whhite.com/" />
+  <link rel="canonical" href="https://whhite.com/" />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://whhite.whhite.com/" />
+  <meta property="og:url" content="https://whhite.com/" />
   <meta property="og:title" content="Whhite — Tools &amp; Experiments" />
-  <meta property="og:description" content="40+ tools and experiments. AI assistants, developer utilities, Islamic apps, and more." />
-  <meta property="og:image" content="https://whhite.whhite.com/og-image.svg" />
+  <meta property="og:description" content="44 tools and experiments. AI assistants, developer utilities, Islamic apps, and more." />
+  <meta property="og:image" content="https://whhite.com/og-image.svg" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Whhite — Tools &amp; Experiments" />
-  <meta name="twitter:description" content="40+ tools and experiments by Ibrahim Mokdad &amp; Yazin Alirhayim." />
-  <meta name="twitter:image" content="https://whhite.whhite.com/og-image.svg" />
+  <meta name="twitter:description" content="44 tools and experiments by Ibrahim Mokdad &amp; Yazin Alirhayim." />
+  <meta name="twitter:image" content="https://whhite.com/og-image.svg" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;0,700;1,300;1,600;1,700&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Whhite","description":"A catalog of tools and experiments by Ibrahim Mokdad and Yazin Alirhayim","url":"https://whhite.whhite.com","author":[{"@type":"Person","name":"Ibrahim Mokdad","email":"ibrahim@whhite.com"},{"@type":"Person","name":"Yazin Alirhayim"}]}</script>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=DM+Sans:opsz,wght@9..40,300;9..40,400&display=swap" rel="stylesheet">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Whhite","description":"44 tools and experiments by Ibrahim Mokdad and Yazin Alirhayim","url":"https://whhite.com","author":[{"@type":"Person","name":"Ibrahim Mokdad","email":"ibrahim@whhite.com"},{"@type":"Person","name":"Yazin Alirhayim"}]}</script>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
 
     :root {
-      --bg: #0A0807;
-      --surface: #141110;
-      --border: #211C18;
-      --text: #EDE8DE;
-      --text-muted: #6B5F55;
-      --text-dim: #2B2420;
-      --gold: #C4975A;
-      --gold-bright: #D8AE6A;
-      --gold-faint: rgba(196, 151, 90, 0.1);
-      --cat-claude: #4ADE80;
-      --cat-dev: #60A5FA;
-      --cat-ai: #C084FC;
-      --cat-islamic: #2DD4BF;
-      --cat-life: #FB923C;
+      --bg: #EFEDE7;
+      --surface: #FFFFFF;
+      --border: #DEDAD2;
+      --border-dark: #C9C4BB;
+      --text: #1A1714;
+      --muted: #7A746C;
+      --faint: #F7F5F1;
+      --cat-claude: #16A34A;
+      --cat-dev: #1D4ED8;
+      --cat-ai: #7C3AED;
+      --cat-islamic: #0E7490;
+      --cat-life: #C2410C;
     }
-
-    html { scroll-behavior: smooth; }
 
     body {
       background: var(--bg);
       color: var(--text);
-      font-family: 'Source Sans 3', Georgia, sans-serif;
+      font-family: 'DM Sans', Georgia, sans-serif;
       font-weight: 300;
-      line-height: 1.6;
-      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
     }
 
-    /* Grain overlay */
-    body::after {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
-      pointer-events: none;
-      z-index: 9999;
-      opacity: 0.5;
+    /* ─── TOPBAR ─── */
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      background: rgba(239, 237, 231, 0.94);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      height: 50px;
+      padding: 0 2.5rem;
+      gap: 0;
     }
+
+    .topbar-logo {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 900;
+      font-size: 1.05rem;
+      color: var(--text);
+      text-decoration: none;
+      letter-spacing: -0.02em;
+      padding-right: 2rem;
+      border-right: 1px solid var(--border);
+      margin-right: 0;
+    }
+
+    .topbar-nav {
+      display: flex;
+      align-items: stretch;
+      height: 50px;
+    }
+
+    .topbar-link {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0 1.1rem;
+      font-size: 0.73rem;
+      color: var(--muted);
+      text-decoration: none;
+      border-right: 1px solid var(--border);
+      transition: color 0.15s, background 0.15s;
+      white-space: nowrap;
+    }
+
+    .topbar-link:hover { background: rgba(0,0,0,0.03); color: var(--text); }
+    .topbar-link[data-cat="claude"]:hover { color: var(--cat-claude); }
+    .topbar-link[data-cat="dev"]:hover    { color: var(--cat-dev); }
+    .topbar-link[data-cat="ai"]:hover     { color: var(--cat-ai); }
+    .topbar-link[data-cat="islamic"]:hover{ color: var(--cat-islamic); }
+    .topbar-link[data-cat="life"]:hover   { color: var(--cat-life); }
+
+    .topbar-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .topbar-spacer { flex: 1; }
+
+    .topbar-ext {
+      font-size: 0.72rem;
+      color: var(--muted);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      transition: color 0.15s;
+    }
+    .topbar-ext:hover { color: var(--text); }
 
     /* ─── HERO ─── */
     .hero {
-      position: relative;
-      min-height: 100vh;
-      padding: clamp(3rem, 8vw, 7rem) clamp(2rem, 6vw, 6rem) clamp(3rem, 6vw, 5rem);
+      padding: 4.5rem 2.5rem 3rem;
+      max-width: 1500px;
+      margin: 0 auto;
       display: flex;
-      flex-direction: column;
+      align-items: flex-end;
       justify-content: space-between;
+      gap: 3rem;
       border-bottom: 1px solid var(--border);
-      overflow: hidden;
     }
 
-    .hero::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(ellipse 55% 60% at 15% 55%, rgba(196,151,90,0.05) 0%, transparent 65%),
-        radial-gradient(ellipse 35% 40% at 85% 25%, rgba(196,151,90,0.03) 0%, transparent 65%);
-      pointer-events: none;
-    }
+    .hero-left { max-width: 640px; }
 
-    .hero-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-    }
-
-    .hero-badge {
-      font-size: 0.65rem;
-      font-weight: 600;
-      letter-spacing: 0.28em;
-      text-transform: uppercase;
-      color: var(--gold);
-      opacity: 0;
-      animation: fadeUp 0.6s ease forwards 0.1s;
-    }
-
-    .hero-year {
-      font-size: 0.65rem;
+    .hero-kicker {
+      font-size: 0.7rem;
       font-weight: 400;
-      letter-spacing: 0.15em;
-      color: var(--text-muted);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 1rem;
       opacity: 0;
-      animation: fadeUp 0.6s ease forwards 0.2s;
-    }
-
-    .hero-center {
-      position: relative;
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 4rem 0 3rem;
+      animation: up 0.5s ease forwards 0.1s;
     }
 
     .hero-title {
-      font-family: 'Cormorant Garamond', Georgia, serif;
-      font-size: clamp(5.5rem, 16vw, 15rem);
-      font-weight: 700;
-      font-style: italic;
-      line-height: 0.87;
-      letter-spacing: -0.025em;
+      font-family: 'Nunito', sans-serif;
+      font-size: clamp(3.2rem, 7vw, 6.5rem);
+      font-weight: 900;
+      line-height: 0.92;
+      letter-spacing: -0.04em;
       color: var(--text);
+      margin-bottom: 1.4rem;
       opacity: 0;
-      animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.25s;
+      animation: up 0.6s cubic-bezier(0.16,1,0.3,1) forwards 0.2s;
     }
 
-    .hero-title .ghost {
-      -webkit-text-stroke: 1.5px rgba(196, 151, 90, 0.3);
-      color: transparent;
+    .hero-desc {
+      font-size: 0.95rem;
+      color: var(--muted);
+      line-height: 1.75;
+      max-width: 440px;
+      opacity: 0;
+      animation: up 0.5s ease forwards 0.4s;
     }
 
-    .hero-subtitle {
-      margin-top: 1.25rem;
-      font-size: 0.7rem;
+    .hero-about-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      margin-top: 1.1rem;
+      font-size: 0.72rem;
       font-weight: 600;
-      letter-spacing: 0.35em;
-      text-transform: uppercase;
-      color: var(--text-muted);
+      letter-spacing: 0.1em;
+      color: #C4975A;
+      text-decoration: none;
       opacity: 0;
-      animation: fadeUp 0.6s ease forwards 0.5s;
+      animation: up 0.5s ease forwards 0.55s;
+      transition: color 0.15s;
     }
+    .hero-about-link:hover { color: var(--text); }
 
-    /* Large ghost number in background */
-    .hero-bg-num {
-      position: absolute;
-      right: -0.04em;
-      top: 50%;
-      transform: translateY(-50%);
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(14rem, 28vw, 26rem);
-      font-weight: 700;
-      font-style: italic;
-      color: transparent;
-      -webkit-text-stroke: 1px var(--text-dim);
-      pointer-events: none;
-      user-select: none;
-      line-height: 1;
-      opacity: 0;
-      animation: fadeIn 1.2s ease forwards 0.6s;
-    }
-
-    .hero-bottom {
+    .hero-right {
       display: flex;
-      align-items: flex-end;
-      gap: clamp(2rem, 5vw, 5rem);
+      gap: 2.5rem;
+      flex-shrink: 0;
       opacity: 0;
-      animation: fadeUp 0.6s ease forwards 0.7s;
+      animation: up 0.5s ease forwards 0.45s;
     }
 
     .hero-stat {
       display: flex;
       flex-direction: column;
-      gap: 0.3rem;
+      align-items: flex-end;
+      gap: 0.2rem;
     }
 
     .hero-stat-num {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(2.2rem, 4vw, 3.5rem);
-      font-weight: 300;
-      color: var(--gold);
+      font-family: 'Nunito', sans-serif;
+      font-size: 3rem;
+      font-weight: 900;
       line-height: 1;
+      color: var(--text);
+      letter-spacing: -0.04em;
     }
 
     .hero-stat-label {
-      font-size: 0.6rem;
-      font-weight: 600;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-    }
-
-    .hero-rule {
-      width: 1px;
-      height: 50px;
-      background: var(--border);
-      align-self: center;
-    }
-
-    .hero-tagline {
-      max-width: 280px;
-      font-size: 0.88rem;
-      color: var(--text-muted);
-      line-height: 1.8;
-    }
-
-    .hero-scroll {
-      position: absolute;
-      bottom: clamp(2rem, 4vw, 3.5rem);
-      right: clamp(2rem, 6vw, 6rem);
-      color: var(--text-muted);
-      text-decoration: none;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.5rem;
-      font-size: 0.6rem;
-      font-weight: 600;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      opacity: 0;
-      animation: fadeIn 0.6s ease forwards 1s;
-    }
-
-    .hero-scroll svg {
-      animation: bounce 2s ease-in-out infinite;
-    }
-
-    @keyframes bounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(5px); }
-    }
-
-    /* ─── STICKY NAV ─── */
-    .sticky-nav {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: rgba(10, 8, 7, 0.92);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
-      padding: 0 clamp(2rem, 6vw, 6rem);
-      display: flex;
-      align-items: center;
-      gap: 0;
-      transform: translateY(-100%);
-      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    .sticky-nav.visible { transform: translateY(0); }
-
-    .sticky-nav a {
       font-size: 0.65rem;
-      font-weight: 600;
       letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: var(--text-muted);
-      text-decoration: none;
-      padding: 0.9rem 1.2rem;
-      transition: color 0.2s;
-      border-right: 1px solid var(--border);
+      color: var(--muted);
     }
 
-    .sticky-nav a:first-child { border-left: 1px solid var(--border); }
-
-    .sticky-nav a:hover { color: var(--gold); }
-    .sticky-nav a[data-active] { color: var(--text); }
-
-    .nav-spacer { flex: 1; }
-
-    .nav-external {
-      font-size: 0.65rem;
-      font-weight: 600;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--gold) !important;
-      border: none !important;
-    }
-
-    /* ─── CATALOG ─── */
+    /* ─── CATEGORIES ─── */
     .catalog {
-      padding: 0 clamp(2rem, 6vw, 6rem);
+      max-width: 1500px;
+      margin: 0 auto;
+      padding: 0 2.5rem 5rem;
     }
 
-    .category-section {
-      padding-top: clamp(3.5rem, 6vw, 5.5rem);
-      padding-bottom: 0;
+    .cat-section {
+      padding-top: 3.5rem;
     }
 
-    .category-header {
+    .cat-header {
       display: flex;
       align-items: center;
-      gap: 1rem;
-      padding-bottom: 1.5rem;
-      border-bottom: 1px solid var(--border);
-      margin-bottom: 0;
+      gap: 0.75rem;
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.9rem;
+      border-bottom: 1.5px solid var(--cat-color, var(--border));
     }
 
     .cat-dot {
-      width: 7px;
-      height: 7px;
+      width: 9px; height: 9px;
       border-radius: 50%;
+      background: var(--cat-color);
       flex-shrink: 0;
     }
 
     .cat-name {
-      font-size: 0.62rem;
-      font-weight: 600;
-      letter-spacing: 0.28em;
-      text-transform: uppercase;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800;
+      font-size: 0.85rem;
+      letter-spacing: 0.04em;
+      color: var(--text);
     }
 
-    .cat-count {
+    .cat-total {
+      font-size: 0.7rem;
+      color: var(--muted);
       margin-left: auto;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 0.9rem;
-      font-style: italic;
-      color: var(--text-muted);
     }
 
-    .projects-grid {
+    /* ─── GRID ─── */
+    .cards-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 0;
-      border-left: 1px solid var(--border);
+      gap: 1rem;
     }
 
-    .project-card {
+    /* ─── CARD ─── */
+    .card {
+      background: var(--surface);
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      overflow: hidden;
       display: flex;
       flex-direction: column;
-      padding: 1.6rem 1.5rem 1.4rem;
-      border-right: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
       text-decoration: none;
       color: inherit;
-      transition: background 0.18s;
-      position: relative;
-      overflow: hidden;
       opacity: 0;
-      transform: translateY(10px);
+      transform: translateY(14px);
+      transition: opacity 0.38s ease, transform 0.38s ease,
+                  box-shadow 0.2s, border-color 0.2s, transform 0.2s;
     }
 
-    .project-card.visible {
+    .card.in {
       opacity: 1;
       transform: translateY(0);
-      transition: background 0.18s, opacity 0.4s ease, transform 0.4s ease;
     }
 
-    .project-card::before {
-      content: '';
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.09);
+      border-color: var(--card-cat);
+    }
+
+    /* Screenshot area */
+    .card-shot {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16/10;
+      background: var(--faint);
+      overflow: hidden;
+      border-bottom: 1px solid var(--border);
+      flex-shrink: 0;
+    }
+
+    .card-shot img {
       position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 2px;
-      background: var(--cat-color, var(--gold));
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 0.25s ease;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      display: block;
+      transition: transform 0.4s ease;
     }
 
-    .project-card:hover { background: var(--surface); }
-    .project-card:hover::before { transform: scaleX(1); }
-
-    .card-num {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 0.7rem;
-      font-style: italic;
-      color: var(--text-dim);
-      margin-bottom: 1rem;
+    .card:hover .card-shot img {
+      transform: scale(1.03);
     }
 
-    .card-name {
-      font-size: 0.95rem;
-      font-weight: 600;
-      color: var(--text);
-      line-height: 1.3;
-      margin-bottom: 0.5rem;
+    /* Placeholder shown before img loads or on error */
+    .card-shot-placeholder {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 900;
+      font-size: 2.5rem;
+      color: rgba(0,0,0,0.07);
+      letter-spacing: -0.04em;
+      user-select: none;
+      background: linear-gradient(145deg, #F5F3EE 0%, #EAE7E0 100%);
+      z-index: 0;
     }
 
-    .card-desc {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      line-height: 1.5;
+    .card-shot img { z-index: 1; }
+
+    /* Body */
+    .card-body {
+      padding: 0.85rem 1rem 0.9rem;
+      display: flex;
+      flex-direction: column;
       flex: 1;
     }
 
-    .card-link {
-      margin-top: 1.2rem;
-      font-size: 0.65rem;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      color: var(--gold);
+    .card-top {
       display: flex;
       align-items: center;
       justify-content: space-between;
+      margin-bottom: 0.5rem;
     }
 
-    .card-arrow {
-      transition: transform 0.2s;
-      font-size: 0.75rem;
+    .cat-badge {
+      font-size: 0.58rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: white;
+      background: var(--card-cat);
+      padding: 0.18rem 0.5rem;
+      border-radius: 3px;
     }
 
-    .project-card:hover .card-arrow { transform: translate(2px, -2px); }
+    .card-num {
+      font-size: 0.62rem;
+      color: #C8C2BA;
+      font-weight: 300;
+    }
+
+    .card-title {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: var(--text);
+      line-height: 1.25;
+      margin-bottom: 0.3rem;
+    }
+
+    .card-desc {
+      font-size: 0.76rem;
+      color: var(--muted);
+      line-height: 1.55;
+      flex: 1;
+    }
+
+    .card-footer {
+      margin-top: 0.75rem;
+      padding-top: 0.6rem;
+      border-top: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.65rem;
+      color: #B0A99F;
+    }
+
+    .card-footer-arrow {
+      transition: transform 0.18s;
+      font-size: 0.8rem;
+      color: var(--card-cat);
+      opacity: 0;
+      transition: opacity 0.18s, transform 0.18s;
+    }
+
+    .card:hover .card-footer-arrow {
+      opacity: 1;
+      transform: translate(2px, -2px);
+    }
 
     /* ─── ABOUT ─── */
-    .about-section {
-      margin-top: clamp(4rem, 8vw, 7rem);
-      padding: clamp(3rem, 6vw, 5rem) clamp(2rem, 6vw, 6rem);
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      background: var(--surface);
+    .about {
+      background: var(--text);
+      color: #EDE8DE;
+      margin-top: 5rem;
+      padding: 4rem 2.5rem;
     }
 
-    .about-eyebrow {
-      font-size: 0.62rem;
-      font-weight: 600;
-      letter-spacing: 0.28em;
+    .about-inner {
+      max-width: 1500px;
+      margin: 0 auto;
+    }
+
+    .about-kicker {
+      font-size: 0.65rem;
+      letter-spacing: 0.22em;
       text-transform: uppercase;
-      color: var(--gold);
-      display: block;
-      margin-bottom: 1.5rem;
+      color: #6B6058;
+      margin-bottom: 1.25rem;
     }
 
     .about-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(2.5rem, 5vw, 4.5rem);
-      font-weight: 600;
-      font-style: italic;
-      line-height: 1.1;
-      color: var(--text);
-      max-width: 560px;
-      margin-bottom: 2rem;
-    }
-
-    .about-title em {
-      font-style: normal;
-      -webkit-text-stroke: 1px rgba(196, 151, 90, 0.5);
-      color: transparent;
+      font-family: 'Nunito', sans-serif;
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      line-height: 1;
+      color: #EDE8DE;
+      margin-bottom: 1.5rem;
     }
 
     .about-intro {
-      max-width: 580px;
-      font-size: 0.95rem;
-      color: var(--text-muted);
+      font-size: 0.9rem;
+      color: #8A7E72;
       line-height: 1.8;
-      margin-bottom: 3.5rem;
-    }
-
-    .makers-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1px;
-      background: var(--border);
+      max-width: 560px;
       margin-bottom: 3rem;
     }
 
-    .maker-card {
-      background: var(--bg);
-      padding: 2rem 2rem 1.8rem;
+    .makers {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: #2B2620;
+      margin-bottom: 2.5rem;
     }
 
+    .maker {
+      background: #201C18;
+      padding: 1.75rem 2rem;
+      display: flex;
+      gap: 1.5rem;
+      align-items: flex-start;
+    }
+
+    .maker-photo {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: top center;
+      flex-shrink: 0;
+      border: 2px solid #2B2620;
+    }
+
+    .maker-info { flex: 1; }
+
     .maker-name {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.5rem;
-      font-weight: 600;
-      color: var(--text);
-      margin-bottom: 0.3rem;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800;
+      font-size: 1.2rem;
+      color: #EDE8DE;
+      margin-bottom: 0.25rem;
     }
 
     .maker-role {
       font-size: 0.65rem;
-      font-weight: 600;
-      letter-spacing: 0.2em;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 1rem;
+      color: #C4975A;
+      margin-bottom: 0.9rem;
     }
 
     .maker-bio {
-      font-size: 0.85rem;
-      color: var(--text-muted);
-      line-height: 1.75;
+      font-size: 0.82rem;
+      color: #8A7E72;
+      line-height: 1.7;
     }
 
-    .maker-tags {
+    .maker-chips {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-top: 1.2rem;
+      gap: 0.4rem;
+      margin-top: 1rem;
     }
 
-    .maker-tag {
-      font-size: 0.62rem;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      padding: 0.25rem 0.65rem;
-      border: 1px solid var(--border);
-      color: var(--text-muted);
+    .maker-chip {
+      font-size: 0.6rem;
+      padding: 0.2rem 0.55rem;
+      border: 1px solid #2B2620;
+      color: #6B6058;
+      border-radius: 3px;
     }
 
-    .clearhour-link {
+    .about-cta {
       display: inline-flex;
       align-items: center;
-      gap: 0.75rem;
+      gap: 0.6rem;
       font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 0.15em;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: var(--gold);
+      color: #C4975A;
       text-decoration: none;
-      padding: 1rem 1.5rem;
-      border: 1px solid rgba(196, 151, 90, 0.3);
-      transition: background 0.2s, border-color 0.2s;
+      border: 1px solid rgba(196,151,90,0.35);
+      padding: 0.8rem 1.4rem;
+      border-radius: 4px;
+      transition: background 0.18s, border-color 0.18s;
     }
 
-    .clearhour-link:hover {
-      background: var(--gold-faint);
-      border-color: var(--gold);
+    .about-cta:hover {
+      background: rgba(196,151,90,0.08);
+      border-color: #C4975A;
     }
 
     /* ─── FOOTER ─── */
     footer {
-      padding: 2rem clamp(2rem, 6vw, 6rem);
+      background: var(--text);
+      border-top: 1px solid #2B2620;
+      padding: 1.25rem 2.5rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 2rem;
     }
 
-    .footer-left {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.1rem;
-      font-style: italic;
-      color: var(--text-muted);
+    .footer-logo {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 900;
+      font-size: 0.9rem;
+      color: #3A342E;
+      letter-spacing: -0.02em;
     }
 
-    .footer-right {
+    .footer-copy {
       font-size: 0.65rem;
-      font-weight: 600;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--text-dim);
+      color: #3A342E;
     }
 
     /* ─── ANIMATIONS ─── */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(16px); }
+    @keyframes up {
+      from { opacity: 0; transform: translateY(14px); }
       to   { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to   { opacity: 1; }
     }
 
     /* ─── RESPONSIVE ─── */
-    @media (max-width: 1200px) {
-      .projects-grid { grid-template-columns: repeat(3, 1fr); }
+    @media (max-width: 1280px) {
+      .cards-grid { grid-template-columns: repeat(3, 1fr); }
     }
-    @media (max-width: 768px) {
-      .projects-grid { grid-template-columns: repeat(2, 1fr); }
-      .makers-grid { grid-template-columns: 1fr; }
-      .hero-rule { display: none; }
-      .hero-tagline { display: none; }
-      .sticky-nav { gap: 0; }
-      .sticky-nav a { padding: 0.9rem 0.8rem; font-size: 0.6rem; }
+    @media (max-width: 900px) {
+      .cards-grid { grid-template-columns: repeat(2, 1fr); }
+      .hero { flex-direction: column; align-items: flex-start; gap: 2rem; }
+      .hero-right { align-self: flex-start; flex-direction: row; }
+      .makers { grid-template-columns: 1fr; }
+      .maker { flex-direction: column; }
     }
-    @media (max-width: 480px) {
-      .projects-grid { grid-template-columns: 1fr; }
+    @media (max-width: 560px) {
+      .cards-grid { grid-template-columns: 1fr; }
+      .topbar-nav { display: none; }
     }
   </style>
 </head>
 <body>
 
+  <!-- TOPBAR -->
+  <header class="topbar">
+    <a class="topbar-logo" href="#">Whhite</a>
+    <nav class="topbar-nav">
+      <a class="topbar-link" href="#claude" data-cat="claude">
+        <span class="topbar-dot" style="background:var(--cat-claude)"></span>Claude
+      </a>
+      <a class="topbar-link" href="#dev" data-cat="dev">
+        <span class="topbar-dot" style="background:var(--cat-dev)"></span>Dev Tools
+      </a>
+      <a class="topbar-link" href="#ai" data-cat="ai">
+        <span class="topbar-dot" style="background:var(--cat-ai)"></span>AI Apps
+      </a>
+      <a class="topbar-link" href="#islamic" data-cat="islamic">
+        <span class="topbar-dot" style="background:var(--cat-islamic)"></span>Islamic
+      </a>
+      <a class="topbar-link" href="#life" data-cat="life">
+        <span class="topbar-dot" style="background:var(--cat-life)"></span>Life
+      </a>
+    </nav>
+    <a class="topbar-link" href="#about" style="border-left:1px solid var(--border)">
+      <span class="topbar-dot" style="background:#C4975A"></span>Meet the Makers
+    </a>
+    <span class="topbar-spacer"></span>
+    <a class="topbar-ext" href="https://theclearhour.com" target="_blank" rel="noopener">
+      The Clear Hour ↗
+    </a>
+  </header>
+
   <!-- HERO -->
-  <header class="hero">
-    <div class="hero-top">
-      <span class="hero-badge">Catalog — 2025</span>
-      <span class="hero-year">whhite.com</span>
+  <section class="hero">
+    <div class="hero-left">
+      <p class="hero-kicker">A living catalog — 2025</p>
+      <h1 class="hero-title">Tools &amp;<br>Experiments</h1>
+      <p class="hero-desc">Everything we've shipped. Built for real problems, deployed when ready. Click any card to visit the live product.</p>
+      <a href="#about" class="hero-about-link">Meet the makers ↓</a>
     </div>
-
-    <div class="hero-center">
-      <span class="hero-bg-num">44</span>
-      <h1 class="hero-title">Wh<span class="ghost">hite</span></h1>
-      <p class="hero-subtitle">Tools &amp; Experiments</p>
-    </div>
-
-    <div class="hero-bottom">
+    <div class="hero-right">
       <div class="hero-stat">
         <span class="hero-stat-num" id="counter">0</span>
         <span class="hero-stat-label">Projects</span>
       </div>
-      <div class="hero-rule"></div>
       <div class="hero-stat">
         <span class="hero-stat-num">5</span>
         <span class="hero-stat-label">Categories</span>
       </div>
-      <div class="hero-rule"></div>
-      <p class="hero-tagline">A running collection of tools, apps, and experiments. Built for real problems. Shipped when ready.</p>
+      <div class="hero-stat">
+        <span class="hero-stat-num">2</span>
+        <span class="hero-stat-label">Makers</span>
+      </div>
     </div>
-
-    <a href="#catalog" class="hero-scroll" aria-label="Scroll to catalog">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
-        <path d="M12 5v14M5 13l7 7 7-7"/>
-      </svg>
-    </a>
-  </header>
-
-  <!-- STICKY NAV -->
-  <nav class="sticky-nav" id="stickyNav" aria-label="Category navigation">
-    <a href="#claude" data-cat="claude">Claude</a>
-    <a href="#dev" data-cat="dev">Developer</a>
-    <a href="#ai" data-cat="ai">AI</a>
-    <a href="#islamic" data-cat="islamic">Islamic</a>
-    <a href="#life" data-cat="life">Life</a>
-    <span class="nav-spacer"></span>
-    <a href="https://theclearhour.com" target="_blank" rel="noopener" class="nav-external">The Clear Hour ↗</a>
-  </nav>
+  </section>
 
   <!-- CATALOG -->
-  <main class="catalog" id="catalog">
+  <main class="catalog">
 
-    <!-- Claude Ecosystem -->
-    <section class="category-section" id="claude">
-      <div class="category-header">
+    <!-- ── CLAUDE ECOSYSTEM ── -->
+    <section class="cat-section" id="claude">
+      <div class="cat-header" style="--cat-color:var(--cat-claude)">
         <span class="cat-dot" style="background:var(--cat-claude)"></span>
-        <span class="cat-name" style="color:var(--cat-claude)">Claude Ecosystem</span>
-        <span class="cat-count">04 projects</span>
+        <span class="cat-name">Claude Ecosystem</span>
+        <span class="cat-total">4 projects</span>
       </div>
-      <div class="projects-grid" style="--cat-color: var(--cat-claude)">
-        <a class="project-card" href="https://claudemonitor.whhite.com" target="_blank" rel="noopener" style="--cat-color:var(--cat-claude)">
-          <span class="card-num">01</span>
-          <span class="card-name">Claude Monitor</span>
-          <span class="card-desc">Live terminal dashboard for all active Claude Code sessions across projects</span>
-          <span class="card-link">claudemonitor.whhite.com <span class="card-arrow">↗</span></span>
+      <div class="cards-grid">
+
+        <a class="card" href="https://claudemonitor.whhite.com" target="_blank" rel="noopener" style="--card-cat:var(--cat-claude)">
+          <div class="card-shot">
+            <div class="card-shot-placeholder">CM</div>
+            <img src="/screenshots/claudemonitor.jpg" loading="lazy" alt="Claude Monitor">
+          </div>
+          <div class="card-body">
+            <div class="card-top">
+              <span class="cat-badge" style="background:var(--cat-claude)">Claude</span>
+              <span class="card-num">01</span>
+            </div>
+            <h3 class="card-title">Claude Monitor</h3>
+            <p class="card-desc">Live terminal dashboard for all active Claude Code sessions across projects</p>
+            <div class="card-footer">
+              <span>claudemonitor.whhite.com</span>
+              <span class="card-footer-arrow">↗</span>
+            </div>
+          </div>
         </a>
-        <a class="project-card" href="https://claudeview.whhite.com" target="_blank" rel="noopener" style="--cat-color:var(--cat-claude)">
-          <span class="card-num">02</span>
-          <span class="card-name">Claude Garden</span>
-          <span class="card-desc">Visualize your Claude Code sessions as living plants — each one shows what Claude is doing</span>
-          <span class="card-link">claudeview.whhite.com <span class="card-arrow">↗</span></span>
+
+        <a class="card" href="https://claudeview.whhite.com" target="_blank" rel="noopener" style="--card-cat:var(--cat-claude)">
+          <div class="card-shot">
+            <div class="card-shot-placeholder">CG</div>
+            <img src="/screenshots/claudeview.jpg" loading="lazy" alt="Claude Garden">
+          </div>
+          <div class="card-body">
+            <div class="card-top">
+              <span class="cat-badge" style="background:var(--cat-claude)">Claude</span>
+              <span class="card-num">02</span>
+            </div>
+            <h3 class="card-title">Claude Garden</h3>
+            <p class="card-desc">Visualize your Claude Code sessions as living plants — each shows what Claude is doing</p>
+            <div class="card-footer">
+              <span>claudeview.whhite.com</span>
+              <span class="card-footer-arrow">↗</span>
+            </div>
+          </div>
         </a>
-        <a class="project-card" href="https://claudecost.whhite.com" target="_blank" rel="noopener" style="--cat-color:var(--cat-claude)">
-          <span class="card-num">03</span>
-          <span class="card-name">ClaudeCost</span>
-          <span class="card-desc">Real-time cost visibility for Claude Code — see spend as it happens</span>
-          <span class="card-link">claudecost.whhite.com <span class="card-arrow">↗</span></span>
+
+        <a class="card" href="https://claudecost.whhite.com" target="_blank" rel="noopener" style="--card-cat:var(--cat-claude)">
+          <div class="card-shot">
+            <div class="card-shot-placeholder">CC</div>
+            <img src="/screenshots/claudecost.jpg" loading="lazy" alt="ClaudeCost">
+          </div>
+          <div class="card-body">
+            <div class="card-top">
+              <span class="cat-badge" style="background:var(--cat-claude)">Claude</span>
+              <span class="card-num">03</span>
+            </div>
+            <h3 class="card-title">ClaudeCost</h3>
+            <p class="card-desc">Real-time cost visibility for Claude Code — see token spend as it happens</p>
+            <div class="card-footer">
+              <span>claudecost.whhite.com</span>
+              <span class="card-footer-arrow">↗</span>
+            </div>
+          </div>
         </a>
-        <a class="project-card" href="https://taskaude.whhite.com" target="_blank" rel="noopener" style="--cat-color:var(--cat-claude)">
-          <span class="card-num">04</span>
-          <span class="card-name">Taskaude</span>
-          <span class="card-desc">Watch Claude work, task by task, in real time — full session transparency</span>
-          <span class="card-link">taskaude.whhite.com <span class="card-arrow">↗</span></span>
+
+        <a class="card" href="https://taskaude.whhite.com" target="_blank" rel="noopener" style="--card-cat:var(--cat-claude)">
+          <div class="card-shot">
+            <div class="card-shot-placeholder">TA</div>
+            <img src="/screenshots/taskaude.jpg" loading="lazy" alt="Taskaude">
+          </div>
+          <div class="card-body">
+            <div class="card-top">
+              <span class="cat-badge" style="background:var(--cat-claude)">Claude</span>
+              <span class="card-num">04</span>
+            </div>
+            <h3 class="card-title">Taskaude</h3>
+            <p class="card-desc">Watch Claude work, task by task, in real time — full session transparency</p>
+            <div class="card-footer">
+              <span>taskaude.whhite.com</span>
+              <span class="card-footer-arrow">↗</span>
+            </div>
+          </div>
         </a>
+
       </div>
     </section>
 
-    <!-- Developer Tools -->
-    <section class="category-section" id="dev">
-      <div class="category-header">
+    <!-- ── DEV TOOLS ── -->
+    <section class="cat-section" id="dev">
+      <div class="cat-header" style="--cat-color:var(--cat-dev)">
         <span class="cat-dot" style="background:var(--cat-dev)"></span>
-        <span class="cat-name" style="color:var(--cat-dev)">Developer Tools</span>
-        <span class="cat-count">11 projects</span>
+        <span class="cat-name">Developer Tools</span>
+        <span class="cat-total">11 projects</span>
       </div>
-      <div class="projects-grid">
-        <a class="project-card" href="https://disksizer.whhite.com" target="_blank" rel="noopener" style="--cat-color:var(--cat-dev)">
-          <span class="card-num">05</span>
-          <span class="card-name">DiskSizer</span>
-          <span class="card-desc">Blazing-fast disk space analyzer for Windows — find what's eating your drive</span>
-          <span class="card-link">disksizer.whhite.com <span class="card-arrow">↗</span></span>
+      <div class="cards-grid">
+
+        <a class="card" href="https://disksizer.whhite.com" target="_blank" rel="noopener" style="--card-cat:var(--cat-dev)">
+          <div class="card-shot">
+            <div class="card-shot-placeholder">DS</div>
+            <img src="/screenshots/disksizer.jpg" loading="lazy" alt="DiskSizer">
+          </div>
+          <div class="card-body">
+            <div class="card-top">
+              <span class="cat-badge" style="background:var(--cat-dev)">Dev</span>
+              <span class="card-num">05</span>
+            </div>
+            <h3 class="card-title">DiskSizer</h3>
+            <p class="card-desc">Blazing-fast disk space analyzer for Windows — find what's eating your drive</p>
+            <div class="card-footer">
+              <span>disksizer.whhite.com</span>
+              <span class="card-footer-arrow">↗</span>
+            </div>
+          </div>
         </a>
-        <a class="project-card" href="https://winopenoats.whhite.com" target="_blank" rel="noopener" style="--cat-color:var(--cat-dev)">
-          <span class="card-num">06</span>
-          <span class="card-name">WinOpenOats</span>
-          <span class="card-desc">AI meeting assistant that runs fully local on Windows — transcription and knowledge base</span>
-          <span class="card-link">winopenoats.whhite.com <span class="card-arrow">↗</span></span>
+
+        <a class="card" href="https://winopenoats.whhite.com" target="_blank" rel="noopener" style="--card-cat:var(--cat-dev)">
+          <div class="card-shot">
+            <div class="card-shot-placeholder">WO</div>
+            <img src="/screenshots/winopenoats.jpg" loading="lazy" alt="WinOpenOats">
+          </div>
+          <div class="card-body">
+            <div class="card-top">
+              <span class="cat-badge" style="background:var(--cat-dev)">Dev</span>
+              <span class="card-num">06</span>
+            </div>
+            <h3 class="card-title">WinOpenOats</h3>
+            <p class="card-desc">AI meeting assistant that runs fully local on Windows — transcription + knowledge base</p>
+            <div class="card-footer">
+              <span>winopenoats.whhite.com</span>
+              <span class="card-footer-arrow">↗</span>
+            </div>
+          </div>
         </a>
-        <a class="project-card" href="https://recoverer.whhite.com" target="_blank" rel="noopener" style="--cat-color:var(--cat-dev)">
-          <span class="card-num">07</span>
-          <span class="card-name">Recoverer</span>
-          <span class="card-desc">File recovery that actually works — no bloatware, no tricks</span>
-          <span class="card-link">recoverer.whhite.com <span class="card-arrow">↗</span></span>
+
+        <a class="card" href="https://recoverer.whhite.com" target="_blank" rel="noopener" style="--card-cat:var(--cat-dev)">
+          <div class="card-shot">
+            <div class="card-shot-placeholder">RC</div>
+            <img src="/screenshots/recoverer.jpg" loading="lazy" alt="Recoverer">
+          </div>
+          <div class="card-body">
+            <div class="card-top">
+              <span class="cat-badge" style="background:var(--cat-dev)">Dev</span>
+              <span class="card-num">07</span>
+            </div>
+            <h3 class="card-title">Recoverer</h3>
+            <p class="card-desc">File recovery that actually works — no bloatware, no tricks</p>
+            <div class="card-footer">
+              <span>recoverer.whhite.com</span>
+              <span class="card-footer-arrow">↗</span>
+            </div>
+          </div>
         </a>
-        <a class="project-card" href="https://mdpdf.whhite.com" target="_blank" rel="noopener" style="--cat-color:var(--cat-dev)">
-          <span class="card-num">08</span>
-          <span class="card-name">mdPDF</span>
-          <span class="card-desc">Convert Markdown files to clean, well-formatted PDFs instantly</span>
-          <span class="card-link">mdpdf.whhite.com <span class="card-arrow">↗</span></span>
+
+        <a class="card" href="https://mdpdf.whhite.com" target="_blank" rel="noopener" style="--card-cat:var(--cat-dev)">
+          <div class="card-shot">
+            <div class="card-shot-placeholder">MD</div>
+            <img src="/screenshots/mdpdf.jpg" loading="lazy" alt="mdPDF">
+          </div>
+          <div class="card-body">
+            <div class="card-top">
+              <span class="cat-badge" style="background:var(--cat-dev)">Dev</span>
+              <span class="card-num">08</span>
+            </div>
+            <h3 class="card-title">mdPDF</h3>
+            <p class="card-desc">Convert Markdown files to clean, well-formatted PDFs instantly</p>
+            <div class="card-footer">
+              <span>mdpdf.whhite.com</span>
+              <span class="card-footer-arrow">↗</span>
+            </div>
+          </div>
         </a>
-        <a class="project-card" href="https://svger.whhite.com" target="_blank" rel="noopener" style="--cat-color:var(--cat-dev)">
-          <span class="card-num">09</span>
-          <span class="card-name">SVGer</span>
-          <span class="card-desc">Transform SVG files to PNG — drag, convert, done</span>
-          <span class="card-link">svger.whhite.com <span class="card-arrow">↗</span></span>
+
+        <a class="card" href="https://svger.whhite.com" target="_blank" rel="noopener" style="--card-cat:var(--cat-dev)">
+          <div class="card-shot">
+            <div class="card-shot-placeholder">SV</div>
+            <img src="/screenshots/svger.jpg" loading="lazy" alt="SVGer">
+          </div>
+          <div class="card-body">
+            <div class="card-top">
+              <span class="cat-badge" style="background:var(--cat-dev)">Dev</span>
+              <span class="card-num">09</span>
+            </div>
+            <h3 class="card-title">SVGer</h3>
+            <p class="card-desc">Transform SVG files to PNG — drag, convert, done</p>
+            <div class="card-footer">
+              <span>svger.whhite.com</span>
+              <span class="card-footer-arrow">↗</span>
+            </div>
+          </div>
         </a>
-        <a class="project-card" href="https://figma-to-pr.whhite.com" target="_blank" rel="noopener" style="--cat-color:var(--cat-dev)">
-          <span class="card-num">10</span>
-          <span class="card-name">Figma to PR</span>
-          <span class="card-desc">Turn Figma designs into pull requests with generated implementation code</span>
-          <span class="card-link">figma-to-pr.whhite.com <span class="card-arrow">↗</span></span>
+
+        <a class="card" href="https://figma-to-pr.whhite.com" target="_blank" rel="noopener" style="--card-cat:var(--cat-dev)">
+          <div class="card-shot">
+            <div class="card-shot-placeholder">FP</div>
+            <img src="/screenshots/figma-to-pr.jpg" loading="lazy" alt="Figma to PR">
+          </div>
+          <div class="card-body">
+            <div class="card-top">
+              <span class="cat-badge" style="background:var(--cat-dev)">Dev</span>
+              <span class="card-num">10</span>
+            </div>
+            <h3 class="card-title">Figma to PR</h3>
+            <p class="card-desc">Turn Figma designs into pull requests with generated implementation code</p>
+            <div class="card-footer">
+              <span>figma-to-pr.whhite.com</span>
+              <span class="card-footer-arrow">↗</span>
+            </div>
+          </div>
         </a>
-        <a class="project-card" href="https://saas-cloner.whhite.com" target="_blank" rel="noopener" style="--cat-color:var(--cat-dev)">
-          <span class="card-num">11</span>
-          <span class="card-name">SaaS Cloner</span>
-          <span class="card-desc">Estimate the engineering cost to clone any SaaS product — before you start</span>
-          <span class="card-link">saas-cloner.whhite.com <span class="card-arrow">↗</span></span>
+
+        <a class="card" href="https://saas-cloner.whhite.com" target="_blank" rel="noopener" style="--card-cat:var(--cat-dev)">
+          <div class="card-shot">
+            <div class="card-shot-placeholder">SC</div>
+            <img src="/screenshots/saas-cloner.jpg" loading="lazy" alt="SaaS Cloner">
+          </div>
+          <div class="card-body">
+            <div class="card-top">
+              <span class="cat-badge" style="background:var(--cat-dev)">Dev</span>
+              <span class="card-num">11</span>
+            </div>
+            <h3 class="card-title">SaaS Cloner</h3>
+            <p class="card-desc">Estimate the engineering cost to clone any SaaS product before you start</p>
+            <div class="card-footer">
+              <span>saas-cloner.whhite.com</span>
+              <span class="card-footer-arrow">↗</span>
+            </div>
+          </div>
         </a>
-        <a class="project-card" href="https://trading-guardrails.whhite.com" target="_blank" rel="noopener" style="--cat-color:var(--cat-dev)">
-          <span class="card-num">12</span>
-          <span class="card-name">Trading Guardrails</span>
-          <span class="card-desc">Safety rails for automated trading — prevent runaway strategies from destroying capital</span>
-          <span class="card-link">trading-guardrails.whhite.com <span class="card-arrow">↗</span></span>
+
+        <a class="card" href="https://trading-guardrails.whhite.com" target="_blank" rel="noopener" style="--card-cat:var(--cat-dev)">
+          <div class="card-shot">
+            <div class="card-shot-placeholder">TG</div>
+            <img src="/screenshots/trading-guardrails.jpg" loading="lazy" alt="Trading Guardrails">
+          </div>
+          <div class="card-body">
+            <div class="card-top">
+              <span class="cat-badge" style="background:var(--cat-dev)">Dev</span>
+              <span class="card-num">12</span>
+            </div>
+            <h3 class="card-title">Trading Guardrails</h3>
+            <p class="card-desc">Safety rails for automated trading — stop runaway strategies from destroying capital</p>
+            <div class="card-footer">
+              <span>trading-guardrails.whhite.com</span>
+              <span class="card-footer-arrow">↗</span>
+            </div>
+          </div>
         </a>
-        <a class="project-card" href="https://wuzapi.whhite.com" target="_blank" rel="noopener" style="--cat-color:var(--cat-dev)">
-          <span class="card-num">13</span>
-          <span class="card-name">WuzAPI</span>
-          <span class="card-desc">WhatsApp API integration layer — send messages, handle webhooks, and automate WhatsApp workflows</span>
-          <span class="card-link">wuzapi.whhite.com <span class="card-arrow">↗</span></span>
+
+        <a class="card" href="https://wuzapi.whhite.com" target="_blank" rel="noopener" style="--card-cat:var(--cat-dev)">
+          <div class="card-shot">
+            <div class="card-shot-placeholder">WA</div>
+            <img src="/screenshots/wuzapi.jpg" loading="lazy" alt="WuzAPI">
+          </div>
+          <div class="card-body">
+            <div class="card-top">
+              <span class="cat-badge" style="background:var(--cat-dev)">Dev</span>
+              <span class="card-num">13</span>
+            </div>
+            <h3 class="card-title">WuzAPI</h3>
+            <p class="card-desc">WhatsApp API integration layer — send messages, handle webhooks, automate workflows</p>
+            <div class="card-footer">
+              <span>wuzapi.whhite.com</span>
+              <span class="card-footer-arrow">↗</span>
+            </div>
+          </div>
         </a>
-        <a class="project-card" href="https://ai-native-template.whhite.com" target="_blank" rel="noopener" style="--cat-color:var(--cat-dev)">
-          <span class="card-num">14</span>
-          <span class="card-name">AI Native Template</span>
-          <span class="card-desc">Starter template for building AI-native applications — opinionated, production-ready, ship fast</span>
-          <span class="card-link">ai-native-template.whhite.com <span class="card-arrow">↗</span></span>
+
+        <a class="card" href="https://ai-native-template.whhite.com" target="_blank" rel="noopener" style="--card-cat:var(--cat-dev)">
+          <div class="card-shot">
+            <div class="card-shot-placeholder">AI</div>
+            <img src="/screenshots/ai-native-template.jpg" loading="lazy" alt="AI Native Template">
+          </div>
+          <div class="card-body">
+            <div class="card-top">
+              <span class="cat-badge" style="background:var(--cat-dev)">Dev</span>
+              <span class="card-num">14</span>
+            </div>
+            <h3 class="card-title">AI Native Template</h3>
+            <p class="card-desc">Starter template for AI-native applications — opinionated, production-ready, ship fast</p>
+            <div class="card-footer">
+              <span>ai-native-template.whhite.com</span>
+              <span class="card-footer-arrow">↗</span>
+            </div>
+          </div>
         </a>
-        <a class="project-card" href="https://saascloner.whhite.com" target="_blank" rel="noopener" style="--cat-color:var(--cat-dev)">
-          <span class="card-num">15</span>
-          <span class="card-name">SaaS Cloner</span>
-          <span class="card-desc">Estimate the engineering cost to clone any SaaS product — v2 with expanded feature breakdown</span>
-          <span class="card-link">saascloner.whhite.com <span class="card-arrow">↗</span></span>
+
+        <a class="card" href="https://saascloner.whhite.com" target="_blank" rel="noopener" style="--card-cat:var(--cat-dev)">
+          <div class="card-shot">
+            <div class="card-shot-placeholder">SC</div>
+            <img src="/screenshots/saascloner.jpg" loading="lazy" alt="SaaS Cloner v2">
+          </div>
+          <div class="card-body">
+            <div class="card-top">
+              <span class="cat-badge" style="background:var(--cat-dev)">Dev</span>
+              <span class="card-num">15</span>
+            </div>
+            <h3 class="card-title">SaaS Cloner v2</h3>
+            <p class="card-desc">Expanded SaaS cost estimator with deeper feature breakdown and comparison</p>
+            <div class="card-footer">
+              <span>saascloner.whhite.com</span>
+              <span class="card-footer-arrow">↗</span>
+            </div>
+          </div>
         </a>
+
       </div>
     </section>
 
-    <!-- AI Apps -->
-    <section class="category-section" id="ai">
-      <div class="category-header">
+    <!-- ── AI APPS ── -->
+    <section class="cat-section" id="ai">
+      <div class="cat-header" style="--cat-color:var(--cat-ai)">
         <span class="cat-dot" style="background:var(--cat-ai)"></span>
-        <span class="cat-name" style="color:var(--cat-ai)">AI Apps</span>
-        <span class="cat-count">12 projects</span>
+        <span class="cat-name">AI Apps</span>
+        <span class="cat-total">12 projects</span>
       </div>
-      <div class="projects-grid">
-        <a class="project-card" href="https://postwriter.whhite.com" target="_blank" rel="noopener" style="--cat-color:var(--cat-ai)">
-          <span class="card-num">16</span>
-          <span class="card-name">PostWriter</span>
-          <span class="card-desc">Paste any link, get social posts in seconds — LinkedIn, X, and more</span>
-          <span class="card-link">postwriter.whhite.com <span class="card-arrow">↗</span></span>
+      <div class="cards-grid">
+
+        <a class="card" href="https://postwriter.whhite.com" target="_blank" rel="noopener" style="--card-cat:var(--cat-ai)">
+          <div class="card-shot">
+            <div class="card-shot-placeholder">PW</div>
+            <img src="/screenshots/postwriter.jpg" loading="lazy" alt="PostWriter">
+          </div>
+          <div class="card-body">
+            <div class="card-top">
+              <span class="cat-badge" style="background:var(--cat-ai)">AI</span>
+              <span class="card-num">16</span>
+            </div>
+            <h3 class="card-title">PostWriter</h3>
+            <p class="card-desc">Paste any link, get social posts in seconds — LinkedIn, X, and more</p>
+            <div class="card-footer">
+              <span>postwriter.whhite.com</span>
+              <span class="card-footer-arrow">↗</span>
+            </div>
+          </div>
         </a>
-        <a class="project-card" href="https://doc-ai.whhite.com" target="_blank" rel="noopener" style="--cat-color:var(--cat-ai)">
-          <span class="card-num">17</span>
-          <span class="card-name">Doc.ai</span>
-          <span class="card-desc">Privacy-first AI health assistant — your symptoms, analyzed locally</span>
-          <span class="card-link">doc-ai.whhite.com <span class="card-arrow">↗</span></span>
+
+        <a class="card" href="https://doc-ai.whhite.com" target="_blank" rel="noopener" style="--card-cat:var(--cat-ai)">
+          <div class="card-shot">
+            <div class="card-shot-placeholder">DA</div>
+            <img src="/screenshots/doc-ai.jpg" loading="lazy" alt="Doc.ai">
+          </div>
+          <div class="card-body">
+            <div class="card-top">
+              <span class="cat-badge" style="background:var(--cat-ai)">AI</span>
+              <span class="card-num">17</span>
+            </div>
+            <h3 class="card-title">Doc.ai</h3>
+            <p class="card-desc">Privacy-first AI health assistant — your symptoms, analyzed locally</p>
+            <div class="card-footer">
+              <span>doc-ai.whhite.com</span>
+              <span class="card-footer-arrow">↗</span>
+            </div>
+          </div>
         </a>
-        <a class="project-card" href="https://tabib.whhite.com" target="_blank" rel="noopener" style="--cat-color:var(--cat-ai)">
-          <span class="card-num">18</span>
-          <span class="card-name">Tabib</span>
-          <span class="card-desc">Your personal doctor, always available — Arabic-first AI health guidance</span>
-          <span class="card-link">tabib.whhite.com <span class="card-arrow">↗</span></span>
+
+        <a class="card" href="https://tabib.whhite.com" target="_blank" rel="noopener" style="--card-cat:var(--cat-ai)">
+          <div class="card-shot">
+            <div class="card-shot-placeholder">TB</div>
+            <img src="/screenshots/tabib.jpg" loading="lazy" alt="Tabib">
+          </div>
+          <div class="card-body">
+            <div class="card-top">
+              <span class="cat-badge" style="background:var(--cat-ai)">AI</span>
+              <span class="card-num">18</span>
+            </div>
+            <h3 class="card-title">Tabib</h3>
+            <p class="card-desc">Your personal doctor, always available — Arabic-first AI health guidance</p>
+            <div class="card-footer">
+              <span>tabib.whhite.com</span>
+              <span class="card-footer-arrow">↗</span>
+            </div>
+          </div>
         </a>
-        <a class="project-card" href="https://translatebh.whhite.com" target="_blank" rel="noopener" style="--cat-color:var(--cat-ai)">
-          <span class="card-num">19</span>
-          <span class="card-name">TranslateBH</span>
-          <span class="card-desc">AI-powered translation service tuned for Gulf Arabic and dialects</span>
-          <span class="card-link">translatebh.whhite.com <span class="card-arrow">↗</span></span>
+
+        <a class="card" href="https://translatebh.whhite.com" target="_blank" rel="noopener" style="--card-cat:var(--cat-ai)">
+          <div class="card-shot">
+            <div class="card-shot-placeholder">TR</div>
+            <img src="/screenshots/translatebh.jpg" loading="lazy" alt="TranslateBH">
+          </div>
+          <div class="card-body">
+            <div class="card-top">
+              <span class="cat-badge" style="background:var(--cat-ai)">AI</span>
+              <span class="card-num">19</span>
+            </div>
+            <h3 class="card-title">TranslateBH</h3>
+            <p class="card-desc">AI-powered translation tuned for Gulf Arabic and dialects</p>
+            <div class="card-footer">
+              <span>translatebh.whhite.com</span>
+              <span class="card-footer-arrow">↗</span>
+            </div>
+          </div>
         </a>
-        <a class="project-card" href="https://style-trainer.whhite.com" target="_blank" rel="noopener" style="--cat-color:var(--cat-ai)">
-          <span class="card-num">20</span>
-          <span class="card-name">Style Trainer</span>
-          <span class="card-desc">Train an AI on your personal writing style — your voice, amplified</span>
-          <span class="card-link">style-trainer.whhite.com <span class="card-arrow">↗</span></span>
+
+        <a class="card" href="https://style-trainer.whhite.com" target="_blank" rel="noopener" style="--card-cat:var(--cat-ai)">
+          <div class="card-shot">
+            <div class="card-shot-placeholder">ST</div>
+            <img src="/screenshots/style-trainer.jpg" loading="lazy" alt="Style Trainer">
+          </div>
+          <div class="card-body">
+            <div class="card-top">
+              <span class="cat-badge" style="background:var(--cat-ai)">AI</span>
+              <span class="card-num">20</span>
+            </div>
+            <h3 class="card-title">Style Trainer</h3>
+            <p class="card-desc">Train an AI on your personal writing style — your voice, amplified</p>
+            <div class="card-footer">
+              <span>style-trainer.whhite.com</span>
+              <span class="card-footer-arrow">↗</span>
+            </div>
+          </div>
         </a>
-        <a class="project-card" href="https://rep-counter.whhite.com" target="_blank" rel="noopener" style="--cat-color:var(--cat-ai)">
-          <span class="card-num">21</span>
-          <span class="card-name">Rep Counter</span>
-          <span class="card-desc">AI-powered exercise rep tracking — count form, not just reps</span>
-          <span class="card-link">rep-counter.whhite.com <span class="card-arrow">↗</span></span>
+
+        <a class="card" href="https://rep-counter.whhite.com" target="_blank" rel="noopener" style="--card-cat:var(--cat-ai)">
+          <div class="card-shot">
+            <div class="card-shot-placeholder">RC</div>
+            <img src="/screenshots/rep-counter.jpg" loading="lazy" alt="Rep Counter">
+          </div>
+          <div class="card-body">
+            <div class="card-top">
+              <span class="cat-badge" style="background:var(--cat-ai)">AI</span>
+              <span class="card-num">21</span>
+            </div>
+            <h3 class="card-title">Rep Counter</h3>
+            <p class="card-desc">AI-powered exercise rep tracking — count form, not just reps</p>
+            <div class="card-footer">
+              <span>rep-counter.whhite.com</span>
+              <span class="card-footer-arrow">↗</span>
+            </div>
+          </div>
         </a>
-        <a class="project-card" href="https://reflect-app.whhite.com" target="_blank" rel="noopener" style="--cat-color:var(--cat-ai)">
-          <span class="card-num">22</span>
-          <span class="card-name">Reflect</span>
-          <span class="card-desc">Private AI-powered personal reflection journal — your thoughts stay yours</span>
-          <span class="card-link">reflect-app.whhite.com <span class="card-arrow">↗</span></span>
+
+        <a class="card" href="https://reflect-app.whhite.com" target="_blank" rel="noopener" style="--card-cat:var(--cat-ai)">
+          <div class="card-shot">
+            <div class="card-shot-placeholder">RF</div>
+            <img src="/screenshots/reflect-app.jpg" loading="lazy" alt="Reflect">
+          </div>
+          <div class="card-body">
+            <div class="card-top">
+              <span class="cat-badge" style="background:var(--cat-ai)">AI</span>
+              <span class="card-num">22</span>
+            </div>
+            <h3 class="card-title">Reflect</h3>
+            <p class="card-desc">Private AI-powered personal reflection journal — your thoughts stay yours</p>
+            <div class="card-footer">
+              <span>reflect-app.whhite.com</span>
+              <span class="card-footer-arrow">↗</span>
+            </div>
+          </div>
         </a>
-        <a class="project-card" href="https://gender-pitch-demo.whhite.com" target="_blank" rel="noopener" style="--cat-color:var(--cat-ai)">
-          <span class="card-num">23</span>
-          <span class="card-name">Voice Vibe Check</span>
-          <span class="card-desc">Analyze your voice pitch for any audience — know how you sound before they do</span>
-          <span class="card-link">gender-pitch-demo.whhite.com <span class="card-arrow">↗</span></span>
+
+        <a class="card" href="https://gender-pitch-demo.whhite.com" target="_blank" rel="noopener" style="--card-cat:var(--cat-ai)">
+          <div class="card-shot">
+            <div class="card-shot-placeholder">VV</div>
+            <img src="/screenshots/gender-pitch-demo.jpg" loading="lazy" alt="Voice Vibe Check">
+          </div>
+          <div class="card-body">
+            <div class="card-top">
+              <span class="cat-badge" style="background:var(--cat-ai)">AI</span>
+              <span class="card-num">23</span>
+            </div>
+            <h3 class="card-title">Voice Vibe Check</h3>
+            <p class="card-desc">Analyze your voice pitch for any audience — know how you sound before they do</p>
+            <div class="card-footer">
+              <span>gender-pitch-demo.whhite.com</span>
+              <span class="card-footer-arrow">↗</span>
+            </div>
+          </div>
         </a>
-        <a class="project-card" href="https://bookwise.whhite.com" target="_blank" rel="noopener" style="--cat-color:var(--cat-ai)">
-          <span class="card-num">24</span>
-          <span class="card-name">BookWise</span>
-          <span class="card-desc">Interactive AI reading companion — discuss, quiz, and go deeper into any book</span>
-          <span class="card-link">bookwise.whhite.com <span class="card-arrow">↗</span></span>
+
+        <a class="card" href="https://bookwise.whhite.com" target="_blank" rel="noopener" style="--card-cat:var(--cat-ai)">
+          <div class="card-shot">
+            <div class="card-shot-placeholder">BW</div>
+            <img src="/screenshots/bookwise.jpg" loading="lazy" alt="BookWise">
+          </div>
+          <div class="card-body">
+            <div class="card-top">
+              <span class="cat-badge" style="background:var(--cat-ai)">AI</span>
+              <span class="card-num">24</span>
+            </div>
+            <h3 class="card-title">BookWise</h3>
+            <p class="card-desc">Interactive AI reading companion — discuss, quiz, and go deeper into any book</p>
+            <div class="card-footer">
+              <span>bookwise.whhite.com</span>
+              <span class="card-footer-arrow">↗</span>
+            </div>
+          </div>
         </a>
-        <a class="project-card" href="https://cold-cannon.whhite.com" target="_blank" rel="noopener" style="--cat-color:var(--cat-ai)">
-          <span class="card-num">25</span>
-          <span class="card-name">Cold Cannon</span>
-          <span class="card-desc">AI cold outreach command center — research, personalize, and fire at scale</span>
-          <span class="card-link">cold-cannon.whhite.com <span class="card-arrow">↗</span></span>
+
+        <a class="card" href="https://cold-cannon.whhite.com" target="_blank" rel="noopener" style="--card-cat:var(--cat-ai)">
+          <div class="card-shot">
+            <div class="card-shot-placeholder">CC</div>
+            <img src="/screenshots/cold-cannon.jpg" loading="lazy" alt="Cold Cannon">
+          </div>
+          <div class="card-body">
+            <div class="card-top">
+              <span class="cat-badge" style="background:var(--cat-ai)">AI</span>
+              <span class="card-num">25</span>
+            </div>
+            <h3 class="card-title">Cold Cannon</h3>
+            <p class="card-desc">AI cold outreach command center — research, personalize, and fire at scale</p>
+            <div class="card-footer">
+              <span>cold-cannon.whhite.com</span>
+              <span class="card-footer-arrow">↗</span>
+            </div>
+          </div>
         </a>
-        <a class="project-card" href="https://detectcost.whhite.com" target="_blank" rel="noopener" style="--cat-color:var(--cat-ai)">
-          <span class="card-num">26</span>
-          <span class="card-name">DetectCost</span>
-          <span class="card-desc">AI material detection and cost calculator — upload a photo, get a BOM</span>
-          <span class="card-link">detectcost.whhite.com <span class="card-arrow">↗</span></span>
+
+        <a class="card" href="https://detectcost.whhite.com" target="_blank" rel="noopener" style="--card-cat:var(--cat-ai)">
+          <div class="card-shot">
+            <div class="card-shot-placeholder">DC</div>
+            <img src="/screenshots/detectcost.jpg" loading="lazy" alt="DetectCost">
+          </div>
+          <div class="card-body">
+            <div class="card-top">
+              <span class="cat-badge" style="background:var(--cat-ai)">AI</span>
+              <span class="card-num">26</span>
+            </div>
+            <h3 class="card-title">DetectCost</h3>
+            <p class="card-desc">AI material detection and cost calculator — upload a photo, get a BOM</p>
+            <div class="card-footer">
+              <span>detectcost.whhite.com</span>
+              <span class="card-footer-arrow">↗</span>
+            </div>
+          </div>
         </a>
-        <a class="project-card" href="https://dilusional.whhite.com" target="_blank" rel="noopener" style="--cat-color:var(--cat-ai)">
-          <span class="card-num">27</span>
-          <span class="card-name">Dilusional</span>
-          <span class="card-desc">AI-powered illusion and perception tool — challenge what you think you see</span>
-          <span class="card-link">dilusional.whhite.com <span class="card-arrow">↗</span></span>
+
+        <a class="card" href="https://dilusional.whhite.com" target="_blank" rel="noopener" style="--card-cat:var(--cat-ai)">
+          <div class="card-shot">
+            <div class="card-shot-placeholder">DL</div>
+            <img src="/screenshots/dilusional.jpg" loading="lazy" alt="Dilusional">
+          </div>
+          <div class="card-body">
+            <div class="card-top">
+              <span class="cat-badge" style="background:var(--cat-ai)">AI</span>
+              <span class="card-num">27</span>
+            </div>
+            <h3 class="card-title">Dilusional</h3>
+            <p class="card-desc">AI-powered illusion and perception tool — challenge what you think you see</p>
+            <div class="card-footer">
+              <span>dilusional.whhite.com</span>
+              <span class="card-footer-arrow">↗</span>
+            </div>
+          </div>
         </a>
+
       </div>
     </section>
 
-    <!-- Islamic -->
-    <section class="category-section" id="islamic">
-      <div class="category-header">
+    <!-- ── ISLAMIC ── -->
+    <section class="cat-section" id="islamic">
+      <div class="cat-header" style="--cat-color:var(--cat-islamic)">
         <span class="cat-dot" style="background:var(--cat-islamic)"></span>
-        <span class="cat-name" style="color:var(--cat-islamic)">Islamic</span>
-        <span class="cat-count">08 projects</span>
+        <span class="cat-name">Islamic</span>
+        <span class="cat-total">8 projects</span>
       </div>
-      <div class="projects-grid">
-        <a class="project-card" href="https://learnislam.whhite.com" target="_blank" rel="noopener" style="--cat-color:var(--cat-islamic)">
-          <span class="card-num">28</span>
-          <span class="card-name">LearnIslam</span>
-          <span class="card-desc">Explore Islamic knowledge with evidence — scholarship, not opinion</span>
-          <span class="card-link">learnislam.whhite.com <span class="card-arrow">↗</span></span>
+      <div class="cards-grid">
+
+        <a class="card" href="https://learnislam.whhite.com" target="_blank" rel="noopener" style="--card-cat:var(--cat-islamic)">
+          <div class="card-shot">
+            <div class="card-shot-placeholder">LI</div>
+            <img src="/screenshots/learnislam.jpg" loading="lazy" alt="LearnIslam">
+          </div>
+          <div class="card-body">
+            <div class="card-top">
+              <span class="cat-badge" style="background:var(--cat-islamic)">Islamic</span>
+              <span class="card-num">28</span>
+            </div>
+            <h3 class="card-title">LearnIslam</h3>
+            <p class="card-desc">Explore Islamic knowledge with evidence — scholarship, not opinion</p>
+            <div class="card-footer">
+              <span>learnislam.whhite.com</span>
+              <span class="card-footer-arrow">↗</span>
+            </div>
+          </div>
         </a>
-        <a class="project-card" href="https://noor.whhite.com" target="_blank" rel="noopener" style="--cat-color:var(--cat-islamic)">
-          <span class="card-num">29</span>
-          <span class="card-name">Noor</span>
-          <span class="card-desc">Islamic educational game for the whole family — learn while you play</span>
-          <span class="card-link">noor.whhite.com <span class="card-arrow">↗</span></span>
+
+        <a class="card" href="https://noor.whhite.com" target="_blank" rel="noopener" style="--card-cat:var(--cat-islamic)">
+          <div class="card-shot">
+            <div class="card-shot-placeholder">NR</div>
+            <img src="/screenshots/noor.jpg" loading="lazy" alt="Noor">
+          </div>
+          <div class="card-body">
+            <div class="card-top">
+              <span class="cat-badge" style="background:var(--cat-islamic)">Islamic</span>
+              <span class="card-num">29</span>
+            </div>
+            <h3 class="card-title">Noor</h3>
+            <p class="card-desc">Islamic educational game for the whole family — learn while you play</p>
+            <div class="card-footer">
+              <span>noor.whhite.com</span>
+              <span class="card-footer-arrow">↗</span>
+            </div>
+          </div>
         </a>
-        <a class="project-card" href="https://inheritance-calc.whhite.com" target="_blank" rel="noopener" style="--cat-color:var(--cat-islamic)">
-          <span class="card-num">30</span>
-          <span class="card-name">Faraid</span>
-          <span class="card-desc">Precise Islamic inheritance calculator following classical Faraid scholarship</span>
-          <span class="card-link">inheritance-calc.whhite.com <span class="card-arrow">↗</span></span>
+
+        <a class="card" href="https://inheritance-calc.whhite.com" target="_blank" rel="noopener" style="--card-cat:var(--cat-islamic)">
+          <div class="card-shot">
+            <div class="card-shot-placeholder">FR</div>
+            <img src="/screenshots/inheritance-calc.jpg" loading="lazy" alt="Faraid">
+          </div>
+          <div class="card-body">
+            <div class="card-top">
+              <span class="cat-badge" style="background:var(--cat-islamic)">Islamic</span>
+              <span class="card-num">30</span>
+            </div>
+            <h3 class="card-title">Faraid</h3>
+            <p class="card-desc">Precise Islamic inheritance calculator following classical Faraid scholarship</p>
+            <div class="card-footer">
+              <span>inheritance-calc.whhite.com</span>
+              <span class="card-footer-arrow">↗</span>
+            </div>
+          </div>
         </a>
-        <a class="project-card" href="https://mirath.whhite.com" target="_blank" rel="noopener" style="--cat-color:var(--cat-islamic)">
-          <span class="card-num">31</span>
-          <span class="card-name">Mirath</span>
-          <span class="card-desc">Islamic inheritance, made simple — clear shares, clear explanations</span>
-          <span class="card-link">mirath.whhite.com <span class="card-arrow">↗</span></span>
+
+        <a class="card" href="https://mirath.whhite.com" target="_blank" rel="noopener" style="--card-cat:var(--cat-islamic)">
+          <div class="card-shot">
+            <div class="card-shot-placeholder">MI</div>
+            <img src="/screenshots/mirath.jpg" loading="lazy" alt="Mirath">
+          </div>
+          <div class="card-body">
+            <div class="card-top">
+              <span class="cat-badge" style="background:var(--cat-islamic)">Islamic</span>
+              <span class="card-num">31</span>
+            </div>
+            <h3 class="card-title">Mirath</h3>
+            <p class="card-desc">Islamic inheritance, made simple — clear shares, clear explanations</p>
+            <div class="card-footer">
+              <span>mirath.whhite.com</span>
+              <span class="card-footer-arrow">↗</span>
+            </div>
+          </div>
         </a>
-        <a class="project-card" href="https://zakatfitr.whhite.com" target="_blank" rel="noopener" style="--cat-color:var(--cat-islamic)">
-          <span class="card-num">32</span>
-          <span class="card-name">Zakat al-Fitr</span>
-          <span class="card-desc">Zakat al-Fitr calculation tool — per person, per household, per country</span>
-          <span class="card-link">zakatfitr.whhite.com <span class="card-arrow">↗</span></span>
+
+        <a class="card" href="https://zakatfitr.whhite.com" target="_blank" rel="noopener" style="--card-cat:var(--cat-islamic)">
+          <div class="card-shot">
+            <div class="card-shot-placeholder">ZK</div>
+            <img src="/screenshots/zakatfitr.jpg" loading="lazy" alt="Zakat al-Fitr">
+          </div>
+          <div class="card-body">
+            <div class="card-top">
+              <span class="cat-badge" style="background:var(--cat-islamic)">Islamic</span>
+              <span class="card-num">32</span>
+            </div>
+            <h3 class="card-title">Zakat al-Fitr</h3>
+            <p class="card-desc">Zakat al-Fitr calculation tool — per person, per household, per country</p>
+            <div class="card-footer">
+              <span>zakatfitr.whhite.com</span>
+              <span class="card-footer-arrow">↗</span>
+            </div>
+          </div>
         </a>
-        <a class="project-card" href="https://quran-tracker.whhite.com" target="_blank" rel="noopener" style="--cat-color:var(--cat-islamic)">
-          <span class="card-num">33</span>
-          <span class="card-name">Quran Tracker</span>
-          <span class="card-desc">Track your live Quran recitation — know where you are and where you're going</span>
-          <span class="card-link">quran-tracker.whhite.com <span class="card-arrow">↗</span></span>
+
+        <a class="card" href="https://quran-tracker.whhite.com" target="_blank" rel="noopener" style="--card-cat:var(--cat-islamic)">
+          <div class="card-shot">
+            <div class="card-shot-placeholder">QT</div>
+            <img src="/screenshots/quran-tracker.jpg" loading="lazy" alt="Quran Tracker">
+          </div>
+          <div class="card-body">
+            <div class="card-top">
+              <span class="cat-badge" style="background:var(--cat-islamic)">Islamic</span>
+              <span class="card-num">33</span>
+            </div>
+            <h3 class="card-title">Quran Tracker</h3>
+            <p class="card-desc">Track your live Quran recitation — know where you are and where you're going</p>
+            <div class="card-footer">
+              <span>quran-tracker.whhite.com</span>
+              <span class="card-footer-arrow">↗</span>
+            </div>
+          </div>
         </a>
-        <a class="project-card" href="https://offline-tarteel.whhite.com" target="_blank" rel="noopener" style="--cat-color:var(--cat-islamic)">
-          <span class="card-num">34</span>
-          <span class="card-name">Tarteel Offline</span>
-          <span class="card-desc">Tarteel Quran app, fully offline — no connection required, no excuses</span>
-          <span class="card-link">offline-tarteel.whhite.com <span class="card-arrow">↗</span></span>
+
+        <a class="card" href="https://offline-tarteel.whhite.com" target="_blank" rel="noopener" style="--card-cat:var(--cat-islamic)">
+          <div class="card-shot">
+            <div class="card-shot-placeholder">OT</div>
+            <img src="/screenshots/offline-tarteel.jpg" loading="lazy" alt="Tarteel Offline">
+          </div>
+          <div class="card-body">
+            <div class="card-top">
+              <span class="cat-badge" style="background:var(--cat-islamic)">Islamic</span>
+              <span class="card-num">34</span>
+            </div>
+            <h3 class="card-title">Tarteel Offline</h3>
+            <p class="card-desc">Tarteel Quran app, fully offline — no connection required, no excuses</p>
+            <div class="card-footer">
+              <span>offline-tarteel.whhite.com</span>
+              <span class="card-footer-arrow">↗</span>
+            </div>
+          </div>
         </a>
-        <a class="project-card" href="https://sujoodsaho.whhite.com" target="_blank" rel="noopener" style="--cat-color:var(--cat-islamic)">
-          <span class="card-num">35</span>
-          <span class="card-name">Sujood Saho</span>
-          <span class="card-desc">Prostration of forgetfulness guidance — know what to do when you miss a rakah</span>
-          <span class="card-link">sujoodsaho.whhite.com <span class="card-arrow">↗</span></span>
+
+        <a class="card" href="https://sujoodsaho.whhite.com" target="_blank" rel="noopener" style="--card-cat:var(--cat-islamic)">
+          <div class="card-shot">
+            <div class="card-shot-placeholder">SS</div>
+            <img src="/screenshots/sujoodsaho.jpg" loading="lazy" alt="Sujood Saho">
+          </div>
+          <div class="card-body">
+            <div class="card-top">
+              <span class="cat-badge" style="background:var(--cat-islamic)">Islamic</span>
+              <span class="card-num">35</span>
+            </div>
+            <h3 class="card-title">Sujood Saho</h3>
+            <p class="card-desc">Prostration of forgetfulness guidance — know what to do when you miss a rakah</p>
+            <div class="card-footer">
+              <span>sujoodsaho.whhite.com</span>
+              <span class="card-footer-arrow">↗</span>
+            </div>
+          </div>
         </a>
+
       </div>
     </section>
 
-    <!-- Life & Consumer -->
-    <section class="category-section" id="life">
-      <div class="category-header">
+    <!-- ── LIFE & CONSUMER ── -->
+    <section class="cat-section" id="life">
+      <div class="cat-header" style="--cat-color:var(--cat-life)">
         <span class="cat-dot" style="background:var(--cat-life)"></span>
-        <span class="cat-name" style="color:var(--cat-life)">Life &amp; Consumer</span>
-        <span class="cat-count">09 projects</span>
+        <span class="cat-name">Life &amp; Consumer</span>
+        <span class="cat-total">9 projects</span>
       </div>
-      <div class="projects-grid">
-        <a class="project-card" href="https://firstbite.whhite.com" target="_blank" rel="noopener" style="--cat-color:var(--cat-life)">
-          <span class="card-num">36</span>
-          <span class="card-name">FirstBites</span>
-          <span class="card-desc">Baby food recipes for every age and stage — starting solids made simple</span>
-          <span class="card-link">firstbite.whhite.com <span class="card-arrow">↗</span></span>
+      <div class="cards-grid">
+
+        <a class="card" href="https://firstbite.whhite.com" target="_blank" rel="noopener" style="--card-cat:var(--cat-life)">
+          <div class="card-shot">
+            <div class="card-shot-placeholder">FB</div>
+            <img src="/screenshots/firstbite.jpg" loading="lazy" alt="FirstBites">
+          </div>
+          <div class="card-body">
+            <div class="card-top">
+              <span class="cat-badge" style="background:var(--cat-life)">Life</span>
+              <span class="card-num">36</span>
+            </div>
+            <h3 class="card-title">FirstBites</h3>
+            <p class="card-desc">Baby food recipes for every age and stage — starting solids made simple</p>
+            <div class="card-footer">
+              <span>firstbite.whhite.com</span>
+              <span class="card-footer-arrow">↗</span>
+            </div>
+          </div>
         </a>
-        <a class="project-card" href="https://sitternow.whhite.com" target="_blank" rel="noopener" style="--cat-color:var(--cat-life)">
-          <span class="card-num">37</span>
-          <span class="card-name">SitterNow</span>
-          <span class="card-desc">Book trusted babysitters on demand — vetted, rated, and ready now</span>
-          <span class="card-link">sitternow.whhite.com <span class="card-arrow">↗</span></span>
+
+        <a class="card" href="https://sitternow.whhite.com" target="_blank" rel="noopener" style="--card-cat:var(--cat-life)">
+          <div class="card-shot">
+            <div class="card-shot-placeholder">SN</div>
+            <img src="/screenshots/sitternow.jpg" loading="lazy" alt="SitterNow">
+          </div>
+          <div class="card-body">
+            <div class="card-top">
+              <span class="cat-badge" style="background:var(--cat-life)">Life</span>
+              <span class="card-num">37</span>
+            </div>
+            <h3 class="card-title">SitterNow</h3>
+            <p class="card-desc">Book trusted babysitters on demand — vetted, rated, and ready now</p>
+            <div class="card-footer">
+              <span>sitternow.whhite.com</span>
+              <span class="card-footer-arrow">↗</span>
+            </div>
+          </div>
         </a>
-        <a class="project-card" href="https://clustercal.whhite.com" target="_blank" rel="noopener" style="--cat-color:var(--cat-life)">
-          <span class="card-num">38</span>
-          <span class="card-name">ClusterCal</span>
-          <span class="card-desc">Smart scheduling for recurring group meetings — stop the email chains</span>
-          <span class="card-link">clustercal.whhite.com <span class="card-arrow">↗</span></span>
+
+        <a class="card" href="https://clustercal.whhite.com" target="_blank" rel="noopener" style="--card-cat:var(--cat-life)">
+          <div class="card-shot">
+            <div class="card-shot-placeholder">CL</div>
+            <img src="/screenshots/clustercal.jpg" loading="lazy" alt="ClusterCal">
+          </div>
+          <div class="card-body">
+            <div class="card-top">
+              <span class="cat-badge" style="background:var(--cat-life)">Life</span>
+              <span class="card-num">38</span>
+            </div>
+            <h3 class="card-title">ClusterCal</h3>
+            <p class="card-desc">Smart scheduling for recurring group meetings — stop the email chains</p>
+            <div class="card-footer">
+              <span>clustercal.whhite.com</span>
+              <span class="card-footer-arrow">↗</span>
+            </div>
+          </div>
         </a>
-        <a class="project-card" href="https://say-it-first.whhite.com" target="_blank" rel="noopener" style="--cat-color:var(--cat-life)">
-          <span class="card-num">39</span>
-          <span class="card-name">Say It First</span>
-          <span class="card-desc">Never miss the moment to be the first to say what matters</span>
-          <span class="card-link">say-it-first.whhite.com <span class="card-arrow">↗</span></span>
+
+        <a class="card" href="https://say-it-first.whhite.com" target="_blank" rel="noopener" style="--card-cat:var(--cat-life)">
+          <div class="card-shot">
+            <div class="card-shot-placeholder">SF</div>
+            <img src="/screenshots/say-it-first.jpg" loading="lazy" alt="Say It First">
+          </div>
+          <div class="card-body">
+            <div class="card-top">
+              <span class="cat-badge" style="background:var(--cat-life)">Life</span>
+              <span class="card-num">39</span>
+            </div>
+            <h3 class="card-title">Say It First</h3>
+            <p class="card-desc">Never miss the moment to be the first to say what matters</p>
+            <div class="card-footer">
+              <span>say-it-first.whhite.com</span>
+              <span class="card-footer-arrow">↗</span>
+            </div>
+          </div>
         </a>
-        <a class="project-card" href="https://chicken-empire.whhite.com" target="_blank" rel="noopener" style="--cat-color:var(--cat-life)">
-          <span class="card-num">40</span>
-          <span class="card-name">Chicken Empire</span>
-          <span class="card-desc">Build a GCC poultry empire from scratch — the halal tycoon game</span>
-          <span class="card-link">chicken-empire.whhite.com <span class="card-arrow">↗</span></span>
+
+        <a class="card" href="https://chicken-empire.whhite.com" target="_blank" rel="noopener" style="--card-cat:var(--cat-life)">
+          <div class="card-shot">
+            <div class="card-shot-placeholder">CE</div>
+            <img src="/screenshots/chicken-empire.jpg" loading="lazy" alt="Chicken Empire">
+          </div>
+          <div class="card-body">
+            <div class="card-top">
+              <span class="cat-badge" style="background:var(--cat-life)">Life</span>
+              <span class="card-num">40</span>
+            </div>
+            <h3 class="card-title">Chicken Empire</h3>
+            <p class="card-desc">Build a GCC poultry empire from scratch — the halal tycoon game</p>
+            <div class="card-footer">
+              <span>chicken-empire.whhite.com</span>
+              <span class="card-footer-arrow">↗</span>
+            </div>
+          </div>
         </a>
-        <a class="project-card" href="https://talabat-optimizer.whhite.com" target="_blank" rel="noopener" style="--cat-color:var(--cat-life)">
-          <span class="card-num">41</span>
-          <span class="card-name">Talabat Optimizer</span>
-          <span class="card-desc">Find the cheapest delivery combination across all stores on Talabat</span>
-          <span class="card-link">talabat-optimizer.whhite.com <span class="card-arrow">↗</span></span>
+
+        <a class="card" href="https://talabat-optimizer.whhite.com" target="_blank" rel="noopener" style="--card-cat:var(--cat-life)">
+          <div class="card-shot">
+            <div class="card-shot-placeholder">TO</div>
+            <img src="/screenshots/talabat-optimizer.jpg" loading="lazy" alt="Talabat Optimizer">
+          </div>
+          <div class="card-body">
+            <div class="card-top">
+              <span class="cat-badge" style="background:var(--cat-life)">Life</span>
+              <span class="card-num">41</span>
+            </div>
+            <h3 class="card-title">Talabat Optimizer</h3>
+            <p class="card-desc">Find the cheapest delivery combination across all stores on Talabat</p>
+            <div class="card-footer">
+              <span>talabat-optimizer.whhite.com</span>
+              <span class="card-footer-arrow">↗</span>
+            </div>
+          </div>
         </a>
-        <a class="project-card" href="https://racegame.whhite.com" target="_blank" rel="noopener" style="--cat-color:var(--cat-life)">
-          <span class="card-num">42</span>
-          <span class="card-name">L Driver</span>
-          <span class="card-desc">A clean, challenging L-shaped racing game — simple controls, hard mastery</span>
-          <span class="card-link">racegame.whhite.com <span class="card-arrow">↗</span></span>
+
+        <a class="card" href="https://racegame.whhite.com" target="_blank" rel="noopener" style="--card-cat:var(--cat-life)">
+          <div class="card-shot">
+            <div class="card-shot-placeholder">LD</div>
+            <img src="/screenshots/racegame.jpg" loading="lazy" alt="L Driver">
+          </div>
+          <div class="card-body">
+            <div class="card-top">
+              <span class="cat-badge" style="background:var(--cat-life)">Life</span>
+              <span class="card-num">42</span>
+            </div>
+            <h3 class="card-title">L Driver</h3>
+            <p class="card-desc">A clean, challenging L-shaped racing game — simple controls, hard mastery</p>
+            <div class="card-footer">
+              <span>racegame.whhite.com</span>
+              <span class="card-footer-arrow">↗</span>
+            </div>
+          </div>
         </a>
-        <a class="project-card" href="https://resist-garden.whhite.com" target="_blank" rel="noopener" style="--cat-color:var(--cat-life)">
-          <span class="card-num">43</span>
-          <span class="card-name">Resist Garden</span>
-          <span class="card-desc">A garden that grows through resistance — tend it daily or watch it fade</span>
-          <span class="card-link">resist-garden.whhite.com <span class="card-arrow">↗</span></span>
+
+        <a class="card" href="https://resist-garden.whhite.com" target="_blank" rel="noopener" style="--card-cat:var(--cat-life)">
+          <div class="card-shot">
+            <div class="card-shot-placeholder">RG</div>
+            <img src="/screenshots/resist-garden.jpg" loading="lazy" alt="Resist Garden">
+          </div>
+          <div class="card-body">
+            <div class="card-top">
+              <span class="cat-badge" style="background:var(--cat-life)">Life</span>
+              <span class="card-num">43</span>
+            </div>
+            <h3 class="card-title">Resist Garden</h3>
+            <p class="card-desc">A garden that grows through resistance — tend it daily or watch it fade</p>
+            <div class="card-footer">
+              <span>resist-garden.whhite.com</span>
+              <span class="card-footer-arrow">↗</span>
+            </div>
+          </div>
         </a>
-        <a class="project-card" href="https://voice-quest.whhite.com" target="_blank" rel="noopener" style="--cat-color:var(--cat-life)">
-          <span class="card-num">44</span>
-          <span class="card-name">Voice Quest</span>
-          <span class="card-desc">A voice-controlled adventure game — your words move the world</span>
-          <span class="card-link">voice-quest.whhite.com <span class="card-arrow">↗</span></span>
+
+        <a class="card" href="https://voice-quest.whhite.com" target="_blank" rel="noopener" style="--card-cat:var(--cat-life)">
+          <div class="card-shot">
+            <div class="card-shot-placeholder">VQ</div>
+            <img src="/screenshots/voice-quest.jpg" loading="lazy" alt="Voice Quest">
+          </div>
+          <div class="card-body">
+            <div class="card-top">
+              <span class="cat-badge" style="background:var(--cat-life)">Life</span>
+              <span class="card-num">44</span>
+            </div>
+            <h3 class="card-title">Voice Quest</h3>
+            <p class="card-desc">A voice-controlled adventure game — your words move the world</p>
+            <div class="card-footer">
+              <span>voice-quest.whhite.com</span>
+              <span class="card-footer-arrow">↗</span>
+            </div>
+          </div>
         </a>
+
       </div>
     </section>
 
   </main>
 
   <!-- ABOUT -->
-  <section class="about-section" id="about">
-    <span class="about-eyebrow">The Makers</span>
-    <h2 class="about-title">We build for <em>ourselves</em> first.</h2>
-    <p class="about-intro">
-      Everything here started as a problem we had, a tool we wanted but couldn't find, or an idea we couldn't stop thinking about. We ship them as finished products — because if it's worth building, it's worth building well.
-    </p>
+  <section class="about" id="about">
+    <div class="about-inner">
+      <p class="about-kicker">The Makers</p>
+      <h2 class="about-title">We build for ourselves first.</h2>
+      <p class="about-intro">Everything here started as a problem we had, a tool we couldn't find, or an idea we couldn't stop thinking about. We ship them as finished products — because if it's worth building, it's worth building well.</p>
 
-    <div class="makers-grid">
-      <div class="maker-card">
-        <p class="maker-name">Ibrahim Mokdad</p>
-        <p class="maker-role">Engineer &amp; ML Specialist</p>
-        <p class="maker-bio">
-          MSc with distinction. YouTube educator with 74K+ views on machine learning tutorials. Co-founder of EXA.io. Ships tools that close the gap between AI capability and daily usefulness.
-        </p>
-        <div class="maker-tags">
-          <span class="maker-tag">ML / AI</span>
-          <span class="maker-tag">Electron</span>
-          <span class="maker-tag">TypeScript</span>
-          <span class="maker-tag">Bahrain</span>
+      <div class="makers">
+        <div class="maker">
+          <img class="maker-photo" src="/yazin.jpg" alt="Yazin Alirhayim">
+          <div class="maker-info">
+            <p class="maker-name">Yazin Alirhayim</p>
+            <p class="maker-role">Founder · YC W22</p>
+            <p class="maker-bio">Former payments company founder acquired by Amazon. Six Sigma Black Belt. Shipped 100+ AI prototypes. Obsessively focused on where AI saves real time for real people.</p>
+            <div class="maker-chips">
+              <span class="maker-chip">YC W22</span>
+              <span class="maker-chip">Ex-Amazon</span>
+              <span class="maker-chip">Six Sigma</span>
+              <span class="maker-chip">Bahrain</span>
+            </div>
+          </div>
+        </div>
+        <div class="maker">
+          <img class="maker-photo" src="/ibrahim.jpg" alt="Ibrahim Mokdad">
+          <div class="maker-info">
+            <p class="maker-name">Ibrahim Mokdad</p>
+            <p class="maker-role">Engineer &amp; ML Specialist</p>
+            <p class="maker-bio">MSc with distinction. YouTube educator with 74K+ views on machine learning tutorials. Co-founder of EXA.io. Ships tools that close the gap between AI capability and daily usefulness.</p>
+            <div class="maker-chips">
+              <span class="maker-chip">ML / AI</span>
+              <span class="maker-chip">Electron</span>
+              <span class="maker-chip">TypeScript</span>
+              <span class="maker-chip">Bahrain</span>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="maker-card">
-        <p class="maker-name">Yazin Alirhayim</p>
-        <p class="maker-role">Founder · YC W22</p>
-        <p class="maker-bio">
-          Former payments company founder acquired by Amazon. Six Sigma Black Belt. Shipped 100+ AI prototypes. Obsessively focused on where AI saves real time for real people.
-        </p>
-        <div class="maker-tags">
-          <span class="maker-tag">YC W22</span>
-          <span class="maker-tag">Ex-Amazon</span>
-          <span class="maker-tag">Six Sigma</span>
-          <span class="maker-tag">Bahrain</span>
-        </div>
-      </div>
+
+      <a href="https://theclearhour.com" target="_blank" rel="noopener" class="about-cta">
+        Our AI consultancy — The Clear Hour ↗
+      </a>
     </div>
-
-    <a href="https://theclearhour.com" target="_blank" rel="noopener" class="clearhour-link">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
-        <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
-      </svg>
-      Our AI consultancy — The Clear Hour ↗
-    </a>
   </section>
 
-  <!-- FOOTER -->
   <footer>
-    <span class="footer-left">Whhite, 2025</span>
-    <span class="footer-right">ibrahim@whhite.com</span>
+    <span class="footer-logo">Whhite</span>
+    <span class="footer-copy">ibrahim@whhite.com</span>
   </footer>
 
   <script>
     // Counter animation
     (function() {
       const el = document.getElementById('counter');
-      const target = 44;
       let start = null;
-      const duration = 1200;
+      const duration = 900;
+      const target = 44;
       function step(ts) {
         if (!start) start = ts;
-        const progress = Math.min((ts - start) / duration, 1);
-        const ease = 1 - Math.pow(1 - progress, 3);
-        el.textContent = Math.round(ease * target);
-        if (progress < 1) requestAnimationFrame(step);
+        const p = Math.min((ts - start) / duration, 1);
+        el.textContent = Math.round((1 - Math.pow(1-p, 3)) * target);
+        if (p < 1) requestAnimationFrame(step);
       }
-      setTimeout(() => requestAnimationFrame(step), 800);
+      setTimeout(() => requestAnimationFrame(step), 400);
     })();
 
-    // Sticky nav show/hide
+    // Scroll-reveal cards
     (function() {
-      const nav = document.getElementById('stickyNav');
-      const hero = document.querySelector('.hero');
-      const observer = new IntersectionObserver(
-        ([entry]) => nav.classList.toggle('visible', !entry.isIntersecting),
-        { threshold: 0 }
-      );
-      observer.observe(hero);
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return;
+          const card = entry.target;
+          const siblings = [...card.parentElement.children];
+          const idx = siblings.indexOf(card) % 4;
+          card.style.transitionDelay = (idx * 55) + 'ms';
+          card.classList.add('in');
+          io.unobserve(card);
+        });
+      }, { threshold: 0.06 });
+      document.querySelectorAll('.card').forEach(c => io.observe(c));
     })();
 
-    // Active nav link on scroll
+    // Active topbar link highlight on scroll
     (function() {
-      const sections = ['claude', 'dev', 'ai', 'islamic', 'life'];
-      const links = document.querySelectorAll('.sticky-nav [data-cat]');
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              links.forEach(l => l.removeAttribute('data-active'));
-              const link = document.querySelector(`.sticky-nav [data-cat="${entry.target.id}"]`);
-              if (link) link.setAttribute('data-active', '');
-            }
-          });
-        },
-        { rootMargin: '-30% 0px -60% 0px' }
-      );
+      const sections = ['claude','dev','ai','islamic','life'];
+      const links = {};
+      sections.forEach(id => {
+        links[id] = document.querySelector(`.topbar-link[data-cat="${id}"]`);
+      });
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (links[e.target.id]) {
+            links[e.target.id].style.color = e.isIntersecting
+              ? `var(--cat-${e.target.id})`
+              : '';
+          }
+        });
+      }, { rootMargin: '-20% 0px -70% 0px' });
       sections.forEach(id => {
         const el = document.getElementById(id);
-        if (el) observer.observe(el);
+        if (el) io.observe(el);
       });
-    })();
-
-    // Scroll reveal for project cards
-    (function() {
-      const cards = document.querySelectorAll('.project-card');
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry, i) => {
-            if (entry.isIntersecting) {
-              // Find position within grid for stagger
-              const siblings = Array.from(entry.target.parentElement.children);
-              const idx = siblings.indexOf(entry.target);
-              entry.target.style.transitionDelay = `${idx * 40}ms`;
-              entry.target.classList.add('visible');
-              observer.unobserve(entry.target);
-            }
-          });
-        },
-        { threshold: 0.05 }
-      );
-      cards.forEach(card => observer.observe(card));
     })();
   </script>
 </body>
